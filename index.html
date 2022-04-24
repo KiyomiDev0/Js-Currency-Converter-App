@@ -9,6 +9,41 @@
    <title>Currency Converter App</title>
 </head>
 <body>
+   <div class="app">
+      <div class="container">
+         <!-- Upper Half -->
+         <div class="top">
+            <h3>Currency Converter</h3>
+         <!-- From -->
+         <div class="from">
+            <h4>From</h4>
+            <div class="cont">
+               <input type="number" placeholder="Enter Amount">
+               <div class="select-box">
+                  <img src="https://flagcdn.com/48x36/us.png">
+                  <select name="" id="from"><option value="">USD</option></select>
+               </div>
+            </div>
+         </div>
+         </div>
+         <span class="exchange-icon"><i class="fa-solid fa-right-left"></i></span>
+         <!-- Lower Half -->
+         <div class="bottom">
+            <!-- To -->
+            <div class="to">
+               <h4>To</h4>
+               <div class="output">
+                  <div class="select-box">
+                     <img src="https://flagcdn.com/48x36/us.png">
+                     <select name="" id="to"><option value="">USD</option></select>
+                  </div>
+                  <p id="output">1 USD = 125.32 AUD</p>
+               </div>
+            </div>
+            <button>Get Exchange Rate</button>
+         </div>
+      </div>
+   </div>
    <script src="app.js"></script>
 </body>
 </html>
