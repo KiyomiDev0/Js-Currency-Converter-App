@@ -3,7 +3,9 @@ let selectBox = document.querySelector(".select-box"),
     to = document.getElementById("to"),
     input = document.querySelector("input"),
     output = document.getElementById("output"),
-    btn = document.querySelector("button");
+    btn = document.querySelector("button"),
+    dropLists = Array.from(document.getElementsByTagName("select")),
+    imgs = document.getElementsByTagName("img");
 
 getCurrencyCode();
 
@@ -31,5 +33,12 @@ async function getCurrencyCode() {
       if (name == 'EGP') {
          to.innerHTML += `<option value="${name}" selected>${name}</option>`;
       } else to.innerHTML += `<option value="${name}">${name}</option>`;
+   })
+   // Get countries flags images on select
+   dropLists.forEach((dropList, index) => {
+      dropList.addEventListener("change", () => {
+         let fromVal = dropList.value.slice(0, -1).toLowerCase();
+         imgs[index].src = `https://flagcdn.com/48x36/${fromVal}.png`
+      })
    })
 }
