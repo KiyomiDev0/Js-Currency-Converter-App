@@ -42,3 +42,25 @@ async function getCurrencyCode() {
       })
    })
 }
+
+// Get Exchange Rate
+btn.addEventListener("click", () => {
+   if (input.value == '' || input.value == 0) {
+      output.style.color = "red";
+      output.innerText = "Enter amount and try again";
+   } else {
+      fetch(`https://v6.exchangerate-api.com/v6/7af49191bf482e5bd2719106/latest/${from.value}`)
+      .then(response => response.json())
+      .then(data => {
+       let conversionRate = data.conversion_rates[to.value],
+           result = (input.value * conversionRate).toFixed(2);
+       output.style.color = "#586376";
+       output.style.fontSize = "14px";
+       output.innerText = "Get Exchange Rate...";
+       setTimeout(() => {
+          window.innerWidth < 365 ? output.style.fontSize = "18px" : output.style.fontSize = "25px";
+          output.innerText = `${input.value} ${from.value} = ${result} ${to.value}`;
+       }, 800);
+      });
+   }
+})
